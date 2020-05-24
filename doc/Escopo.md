@@ -2,6 +2,9 @@
 
 ## Resumo 
 
+Lets Do Beer é um aplicativo para smartphones para pessoas que fazem ou gostariam de fazer cerveja artesanal.
+Tem como objetivo gerenciar o processo de fabricação desde a escolha de receitas até o fluxo de preparo mantendo tudo concentrado em uma única plataforma.
+
 ## Premissas
 ### Receitas:
 - Quero pesquisar por tipo de cerveja que eu quero fazer
