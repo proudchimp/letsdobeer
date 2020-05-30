@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const collection = "recipes"
+const collection = "recipes";
 exports.get = async () => {
   return await admin
     .firestore()
@@ -29,6 +29,6 @@ exports.add = async (recipe) => {
     .collection(collection)
     .add(recipe)
     .then((res) => {
-      return res.id;
+      return { id: res.id };
     });
 };
