@@ -1,19 +1,20 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, FlatList} from 'react-native';
+import React from 'react';
+import {StyleSheet} from 'react-native';
 import ListRecipesScreen from './screens/ListRecipesScreen';
-import Header from './components/Header';
+import RecipeDetailScreen from './screens/RecipeDetailScreen';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.screen}>
-      <Header title="Recipes" />
-      <ListRecipesScreen />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Recipes">
+        <Stack.Screen name="ListRecipesScreen" component={ListRecipesScreen} />
+        <Stack.Screen name="RecipeDetailScreen" component={RecipeDetailScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
-});

@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, ActivityIndicator, FlatList} from 'react-native';
-import Recipe from '../components/Recipe';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  ActivityIndicator,
+  FlatList,
+} from 'react-native';
+import ItemRecipe from '../components/ItemRecipe';
 
-const ListRecipesScreen = (props) => {
+function ListRecipesScreen({navigation}) {
   const [isLoading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
 
@@ -21,19 +27,29 @@ const ListRecipesScreen = (props) => {
       ) : (
         <FlatList
           data={recipes}
-          renderItem={({item}) => <Recipe recipe={item} />}
-          keyExtractor={(item, index) => index}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              activeOpacity={0.6}
+              onPress={() => {
+                navigation.navigate('RecipeDetailScreen', {recipe: item});
+              }}>
+              <ItemRecipe id={item.id} recipe={item.recipe} />
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item, index) => index.id}
         />
       )}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
-    padding: 10,
-    alignItems: 'center',
+    margin: 10,
+  },
+  item: {
+    width: 300,
+    maxWidth: '100%',
   },
 });
 
