@@ -1,6 +1,6 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-const recipe = require("./public/Recipe");
+const Recipe = require("./public/resource/RecipeResource");
 admin.initializeApp();
 
-exports.recipe = functions.https.onRequest(recipe.recipe);
+exports.recipe = functions.https.onRequest(Recipe.recipe);
